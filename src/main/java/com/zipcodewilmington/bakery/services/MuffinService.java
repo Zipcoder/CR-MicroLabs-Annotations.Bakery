@@ -2,7 +2,9 @@ package com.zipcodewilmington.bakery.services;
 
 import com.zipcodewilmington.bakery.models.Muffin;
 import com.zipcodewilmington.bakery.repositories.MuffinRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class MuffinService {
     private MuffinRepository repository;
 
@@ -10,7 +12,7 @@ public class MuffinService {
         this.repository = repository;
     }
 
-    public Iterable<Muffin> index() {
+    public Iterable<Muffin> findAll() {
         return repository.findAll();
     }
 
@@ -18,8 +20,8 @@ public class MuffinService {
         return repository.findById(id).get();
     }
 
-    public Muffin create(Muffin baker) {
-        return repository.save(baker);
+    public Muffin create(Muffin muffin) {
+        return repository.save(muffin);
     }
 
     public Muffin update(Long id, Muffin newMuffinData) {
