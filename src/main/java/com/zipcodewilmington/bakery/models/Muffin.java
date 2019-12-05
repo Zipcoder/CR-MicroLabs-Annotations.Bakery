@@ -1,9 +1,14 @@
 package com.zipcodewilmington.bakery.models;
 
+import javax.persistence.Entity;
 import java.util.Objects;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
+@Entity
 public class Muffin {
-
+    @Id
+    @GeneratedValue
     private Long id;
 
     private String flavor;
