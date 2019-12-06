@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+@RequestMapping("api/v1/bakery")
 @Controller
 public class BakerController {
 
@@ -32,12 +33,12 @@ public class BakerController {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
-    @PutMapping
+    @PutMapping(path = "/bakers/{id}")
     public ResponseEntity<Baker> update(@PathVariable Long id, @RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
-    @DeleteMapping
+    @DeleteMapping(path = "/bakers/{id}")
     public ResponseEntity<Boolean> destroy(@PathVariable Long id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
