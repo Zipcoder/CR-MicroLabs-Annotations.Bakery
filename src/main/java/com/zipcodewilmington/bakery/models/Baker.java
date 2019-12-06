@@ -1,15 +1,25 @@
 package com.zipcodewilmington.bakery.models;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Baker {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("employeeId")
     private String employeeId;
 
+    @JsonProperty("speciality")
     private String specialty;
 
     public Baker() {

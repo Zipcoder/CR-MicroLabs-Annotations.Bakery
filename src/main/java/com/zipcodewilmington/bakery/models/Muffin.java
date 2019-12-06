@@ -1,11 +1,18 @@
 package com.zipcodewilmington.bakery.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
 public class Muffin {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonProperty("flavor")
     private String flavor;
 
     public Muffin() {
