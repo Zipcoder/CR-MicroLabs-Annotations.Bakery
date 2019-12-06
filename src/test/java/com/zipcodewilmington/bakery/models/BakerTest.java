@@ -13,6 +13,7 @@ public class BakerTest {
     public void testClassSignatureAnnotations() {
         Assert.assertTrue(Baker.class.isAnnotationPresent(Entity.class));
     }
+
     @Test
     public void testCreateJson() throws JsonProcessingException {
         ObjectMapper jsonWriter = new ObjectMapper();
