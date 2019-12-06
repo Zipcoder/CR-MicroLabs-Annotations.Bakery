@@ -34,12 +34,12 @@ public class BakerController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<Baker> update(@RequestParam("id") Long id, Baker baker) {
+    public ResponseEntity<Baker> update(@PathVariable Long id, Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
     @DeleteMapping("{id}")
-    public ResponseEntity<Boolean> destroy(@RequestParam("id") Long id) {
+    public ResponseEntity<Boolean> destroy(@PathVariable Long id) {
         return new ResponseEntity<>(service.delete(id), HttpStatus.OK);
     }
 }
