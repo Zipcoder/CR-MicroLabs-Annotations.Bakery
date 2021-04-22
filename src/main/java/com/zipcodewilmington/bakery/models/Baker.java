@@ -9,7 +9,7 @@ import java.util.Objects;
 @Entity
 public class Baker {
 
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id @GeneratedValue
     private Long id;
 
     private String name;

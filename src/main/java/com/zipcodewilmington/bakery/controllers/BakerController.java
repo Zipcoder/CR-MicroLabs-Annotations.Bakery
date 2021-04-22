@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class BakerController {
     private BakerService service;
@@ -26,11 +28,11 @@ public class BakerController {
         return new ResponseEntity<>(service.show(id), HttpStatus.OK);
     }
     @PostMapping("/bakers")
-    public ResponseEntity<Baker> create(Baker baker) {
+    public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
     @PutMapping("/bakers/{id}")
-    public ResponseEntity<Baker> update(@PathVariable Long id, Baker baker) {
+    public ResponseEntity<Baker> update(@PathVariable Long id, @RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
     @DeleteMapping("/bakers/{id}")
